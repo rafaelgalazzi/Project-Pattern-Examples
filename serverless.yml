@@ -1,0 +1,32 @@
+service: my-service
+frameworkVersion: '4'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    noPrependStageInUrl: true # removes /dev from local routes
+    reloadHandler: true # auto-reload handler when files change
+    httpPort: 4000 # optional, set custom port
+    prefix: '' # optional, set custom base path (empty = root)
+
+functions:
+  decorator:
+    handler: ./src/handler.decoratorPatterExample
+    events:
+      - http:
+          path: decorator
+          method: get
+
+  proxy:
+    handler: ./src/handler.proxyPatternExample
+    events:
+      - http:
+          path: proxy
+          method: get
