@@ -18,7 +18,7 @@ custom:
 
 functions:
   decorator:
-    handler: ./src/handler.decoratorPatterExample
+    handler: ./src/handler.decoratorPatternExample
     events:
       - http:
           path: decorator
@@ -29,4 +29,11 @@ functions:
     events:
       - http:
           path: proxy
+          method: get
+
+  observer:
+    handler: ./src/handler.observerPatternExample
+    events:
+      - http:
+          path: observer
           method: get
