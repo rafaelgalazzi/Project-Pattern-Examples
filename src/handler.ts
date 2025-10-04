@@ -5,6 +5,7 @@ import { BasicTextProcessor } from './Decorator/BasicTextProcessor';
 import { TextProcessor } from './Decorator/TextProcessor';
 import { BaseGetFile } from './Proxy/BaseGetFile';
 import { errorHandler } from './commom/WrapperErrorHandler';
+import { BaseGetFileProxy } from './Proxy/BaseGetFileProxy';
 
 // Decorator Pattern using recursive composition to add new features to existent code, without changing the existent code.
 export const decoratorPatterExample = errorHandler(
@@ -24,9 +25,16 @@ export const proxyPatternExample = errorHandler(
   async (event: APIGatewayProxyEvent, context: Context): Promise<APIGatewayProxyResult> => {
     console.log(event.queryStringParameters);
 
-    const getFileFunction = new BaseGetFile();
-    const fileName = event.queryStringParameters?.name || 'Test';
-    const getFileFromDatabase = getFileFunction.get(fileName);
+    const getFileHandler = new BaseGetFile();
+    const getFileHandlerProxy = new BaseGetFileProxy(getFileHandler);
+
+    const fileName = event.queryStringParameters?.name;
+
+    if (!fileName) {
+      throw Error('Property name is required.');
+    }
+
+    const getFileFromDatabase = getFileHandlerProxy.get(fileName);
 
     if (getFileFromDatabase instanceof Error) {
       throw Error('File not found');
