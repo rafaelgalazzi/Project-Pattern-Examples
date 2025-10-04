@@ -19,5 +19,5 @@ export function errorHandler(
   };
 }
 
-// Generic type for wrapper funcions
+// Generic type for wrapper funcions that explains the function above
 export type myWrapper = <T extends (...args: any[]) => any>(fn: T) => T;
