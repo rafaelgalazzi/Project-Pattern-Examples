@@ -20,7 +20,7 @@ export class CacheHandler extends CacheHandlerTemplate {
       this.invalidate(key);
       return null;
     }
-    return findItem as T;
+    return findItem.value as T;
   }
 
   set<T>(key: string, value: T): void {
