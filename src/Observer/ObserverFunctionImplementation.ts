@@ -8,6 +8,7 @@ export const observerPatternFunction = async (
   event: APIGatewayProxyEvent,
   context: Context
 ): Promise<APIGatewayProxyResult> => {
+
   console.log(event.queryStringParameters);
 
   const liveChecker = new LiveChecker();

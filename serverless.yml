@@ -37,3 +37,10 @@ functions:
       - http:
           path: observer
           method: get
+
+  facade:
+    handler: ./src/handler.facadePatternExample
+    events:
+      - http:
+          path: facade
+          method: get
