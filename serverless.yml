@@ -44,3 +44,10 @@ functions:
       - http:
           path: facade
           method: get
+
+  singleton:
+    handler: ./src/handler.singletonPatternExample
+    events:
+      - http:
+          path: singleton
+          method: get
