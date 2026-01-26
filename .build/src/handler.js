@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.singletonPatternExample = exports.facadePatternExample = exports.observerPatternExample = exports.proxyPatternExample = exports.decoratorPatternExample = void 0;
+const WrapperErrorHandler_1 = require("./commom/WrapperErrorHandler");
+const DecoratorFunctionImplementation_1 = require("./Decorator/DecoratorFunctionImplementation");
+const ProxyFunctionImplementation_1 = require("./Proxy/ProxyFunctionImplementation");
+const ObserverFunctionImplementation_1 = require("./Observer/ObserverFunctionImplementation");
+const FacadeFunctionImplementation_1 = require("./Facade/FacadeFunctionImplementation");
+const SingletonFunctionImplementation_1 = require("./Singleton/SingletonFunctionImplementation");
+exports.decoratorPatternExample = (0, WrapperErrorHandler_1.errorHandler)(DecoratorFunctionImplementation_1.decoratorPatternFunction);
+exports.proxyPatternExample = (0, WrapperErrorHandler_1.errorHandler)(ProxyFunctionImplementation_1.proxyPatternFunction);
+exports.observerPatternExample = (0, WrapperErrorHandler_1.errorHandler)(ObserverFunctionImplementation_1.observerPatternFunction);
+exports.facadePatternExample = (0, WrapperErrorHandler_1.errorHandler)(FacadeFunctionImplementation_1.facadePatternFunction);
+exports.singletonPatternExample = (0, WrapperErrorHandler_1.errorHandler)(SingletonFunctionImplementation_1.singletonPatternFunction);

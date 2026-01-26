@@ -1,10 +1,7 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
 import { DatabaseConnection } from './DatabaseConnection';
 
-export const singletonPatternFunction = async (
-  event: APIGatewayProxyEvent,
-  context: Context
-): Promise<APIGatewayProxyResult> => {
+export const singletonPatternFunction = async () => {
   const database = {
     read: <T>(form: T) => form,
     write: <T>(form: T) => form,
@@ -20,4 +17,11 @@ export const singletonPatternFunction = async (
     statusCode: 200,
     body: `Read result: ${read1.name} ${read2.name}`,
   };
+};
+
+export const singletonPatternLambda = async (
+  event: APIGatewayProxyEvent,
+  context: Context
+): Promise<APIGatewayProxyResult> => {
+  return singletonPatternFunction();
 };

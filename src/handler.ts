@@ -1,16 +1,16 @@
 import { errorHandler } from './commom/WrapperErrorHandler';
-import { decoratorPatternFunction } from './Decorator/DecoratorFunctionImplementation';
-import { proxyPatternFunction } from './Proxy/ProxyFunctionImplementation';
-import { observerPatternFunction } from './Observer/ObserverFunctionImplementation';
-import { facadePatternFunction } from './Facade/FacadeFunctionImplementation';
-import { singletonPatternFunction } from './Singleton/SingletonFunctionImplementation';
+import { decoratorPatternLambda } from './Decorator/DecoratorFunctionImplementation';
+import { proxyPatternLambda } from './Proxy/ProxyFunctionImplementation';
+import { observerPatternLambda } from './Observer/ObserverFunctionImplementation';
+import { facadePatternLambda } from './Facade/FacadeFunctionImplementation';
+import { singletonPatternLambda } from './Singleton/SingletonFunctionImplementation';
 
-export const decoratorPatternExample = errorHandler(decoratorPatternFunction);
+export const decoratorPatternExample = errorHandler(decoratorPatternLambda);
 
-export const proxyPatternExample = errorHandler(proxyPatternFunction);
+export const facadePatternExample = errorHandler(facadePatternLambda);
 
-export const observerPatternExample = errorHandler(observerPatternFunction);
+export const proxyPatternExample = errorHandler(proxyPatternLambda);
 
-export const facadePatternExample = errorHandler(facadePatternFunction);
+export const observerPatternExample = errorHandler(observerPatternLambda);
 
-export const singletonPatternExample = errorHandler(singletonPatternFunction);
+export const singletonPatternExample = errorHandler(singletonPatternLambda);

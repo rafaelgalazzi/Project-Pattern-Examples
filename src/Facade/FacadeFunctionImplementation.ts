@@ -6,12 +6,7 @@ import { RegisterOrderToSend } from './RegisterOrderToSend';
 import { Order } from './Order';
 import { OrderProcessFacade } from './OrderProcessFacade';
 
-export const facadePatternFunction = async (
-  event: APIGatewayProxyEvent,
-  context: Context
-): Promise<APIGatewayProxyResult> => {
-  console.log(event.queryStringParameters);
-
+export const facadePatternFunction = async () => {
   // Normal implementation of making all in the controller here
   console.log('Sem facade');
   const order = new Order();
@@ -34,4 +29,11 @@ export const facadePatternFunction = async (
     statusCode: 200,
     body: `Notification`,
   };
+};
+
+export const facadePatternLambda = async (
+  event: APIGatewayProxyEvent,
+  context: Context
+): Promise<APIGatewayProxyResult> => {
+  return facadePatternFunction();
 };
